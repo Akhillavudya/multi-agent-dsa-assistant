@@ -60,3 +60,57 @@ The assistant breaks down the monolithic task of problem-solving into a structur
                         │
                         ▼
          [ Final Solution + Code + Review ]
+```
+📁 Project Structure
+```text
+ multi-agent-dsa-assistant/
+│
+├── app.py              # Streamlit frontend & web UI
+├── graph.py            # LangGraph state machine configuration and workflow paths
+├── agents.py           # Individual agent definitions and LLM configurations
+├── prompts.py          # System instructions and engineered prompts for each agent
+├── state.py            # Shared graph memory state definitions
+├── requirements.txt    # Python dependencies
+├── .gitignore          # Version control ignore rules
+└── README.md           # Documentation
+```
+
+🖥️ Setup Instructions
+1. Clone the Repositor
+```text 
+git clone <your-repo-url>
+cd multi-agent-dsa-assistant
+```
+3. Configure a Virtual Environment
+Bash
+```text 
+# Create the environment
+python -m venv myenv
+
+# Activate it (Windows)
+myenv\Scripts\activate
+
+# Activate it (Linux / Mac)
+source myenv/bin/activate
+```
+3. Install Dependencies
+ ```text 
+Bash
+pip install -r requirements.txt
+```
+5. Environment Variables Configuration
+Create a .env file in the root directory and populate it with your environment keys:
+```text 
+Ini, TOML
+HUGGINGFACEHUB_API_TOKEN=your_huggingface_token_here
+LANGCHAIN_API_KEY=your_langsmith_api_key_here
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_PROJECT=multi-agent-dsa-assistant
+
+```
+5. Launch the Application
+```text
+Bash
+streamlit run app.py
+```
+Open your browser and navigate to the default address: http://localhost:8501
