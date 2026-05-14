@@ -99,7 +99,7 @@ Bash
 pip install -r requirements.txt
 ```
 5. Environment Variables Configuration
-Create a .env file in the root directory and populate it with your environment keys:
+*  Create a .env file in the root directory and populate it with your environment keys:
 ```text 
 Ini, TOML
 HUGGINGFACEHUB_API_TOKEN=your_huggingface_token_here
@@ -114,3 +114,36 @@ Bash
 streamlit run app.py
 ```
 Open your browser and navigate to the default address: http://localhost:8501
+
+##🎯 Design Choices
+
+* Used specialized agents instead of one large prompt
+* Used LangGraph for clear workflow control
+* Added reviewer-based conditional routing
+* Added retry limit to avoid infinite loops
+* Used Streamlit for fast interactive UI
+* Used LangSmith for tracing and debugging
+* Focused on DSA problems because it matches coding interview preparation
+  
+##⚠️ Current Limitations
+
+* Code is reviewed by LLM, not actually executed
+* Planner output is still mostly text-based
+* No test case execution sandbox yet
+* No persistent conversation memory
+* Token-level streaming is not fully implemented yet
+  
+##🔮 Future Improvements
+
+* Add Test Case Generator Agent
+* Add Code Execution Agent
+* Add Dry Run Agent
+* Add difficulty detection
+* Add problem history
+* Add token-by-token streaming
+* Add better structured JSON outputs
+* Deploy publicly using Streamlit Cloud
+  
+👨‍💻 Author
+
+* Built by Akhil as a LangGraph-based multi-agent AI project for DSA and coding interview preparation.
