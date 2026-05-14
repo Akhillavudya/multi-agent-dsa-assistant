@@ -1,4 +1,5 @@
 import os
+import streamlit as st
 from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
 
@@ -14,7 +15,7 @@ from prompts import(
 )
 
 client = InferenceClient(
-    token=os.getenv("HUGGINGFACEHUB_API_TOKEN")
+    token=os.getenv("HUGGINGFACEHUB_API_TOKEN") or st.secrets.get("HUGGINGFACEHUB_API_TOKEN")
     # if not token:
     #     raise ValueError("HUGGINGFACEHUB_API_TOKEN not found in .env file")
 )
